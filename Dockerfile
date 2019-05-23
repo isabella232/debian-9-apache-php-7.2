@@ -18,8 +18,6 @@ COPY files /
 COPY --from=configurability_php /go/src/github.com/1and1internet/configurability/bin/plugins/php.so /opt/configurability/goplugins
 RUN \
     apt-get update && \
-    apt-get install -y software-properties-common && \
-    apt-get update && \
     apt-get install -y imagemagick graphicsmagick curl && \
     apt-get install -y libapache2-mod-php7.2 php7.2-bcmath php7.2-bz2 php7.2-cli php7.2-common php7.2-curl php7.2-dba php7.2-gd php7.2-gmp php7.2-imap php7.2-intl php7.2-ldap php7.2-mbstring php7.2-mysql php7.2-odbc php7.2-pgsql php7.2-recode php7.2-snmp php7.2-soap php7.2-sqlite php7.2-tidy php7.2-xml php7.2-xmlrpc php7.2-xsl php7.2-zip && \
     apt-get install -y php-gnupg php-imagick php-mongodb php-fxsl && \
@@ -44,7 +42,6 @@ RUN \
     chmod a+x /usr/local/bin/composer && \
     cd / && \
     rm -rf /tmp/composer && \
-    apt-get remove -y python-software-properties software-properties-common && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* && \
     chmod 777 -R /var/www && \
