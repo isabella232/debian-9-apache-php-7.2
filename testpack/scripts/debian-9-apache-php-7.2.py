@@ -38,7 +38,7 @@ class Test1and1ApacheImage(Test1and1Common):
             "Loading php config",
             "Loading plugin /opt/configurability/goplugins/php.so"
         ]
-        container_logs = self.container.logs().decode('utf-8')
+        container_logs = self.logs()
         for expected_log_line in expected_log_lines:
             self.assertTrue(
                 container_logs.find(expected_log_line) > -1,
@@ -48,8 +48,8 @@ class Test1and1ApacheImage(Test1and1Common):
     def test_apache_var_www_html(self):
         self.file_mode_test("/var/www/html", "drwxrwxrwx")
 
-    def test_php_curl(self):
-        self.check_success("curltest.php")
+    '''def test_php_curl(self):
+        self.check_success("curltest.php")'''
 
     def test_php_gd(self):
         self.check_success("gdtest.php")
