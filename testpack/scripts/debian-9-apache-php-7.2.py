@@ -87,21 +87,6 @@ class Test1and1ApacheImage(Test1and1Common):
     def test_php_zip(self):
         self.check_success("ziptest.php")
 
-    '''def test_php_info(self):
-        # We need to set the desired headers, then get a new driver for this to work
-        webdriver.DesiredCapabilities.PHANTOMJS['phantomjs.page.customHeaders.X-Forwarded-For'] = "1.2.3.4"
-        webdriver.DesiredCapabilities.PHANTOMJS['phantomjs.page.customHeaders.X-Forwarded-Port'] = "99"
-        driver = webdriver.PhantomJS()
-        driver.get("http://%s:8080/phpinfo.php" % Test1and1Common.container_ip)
-        self.assertTrue(
-            driver.page_source.find("REMOTE_ADDR']</td><td class=\"v\">1.2.3.4") > -1,
-            msg="phpinfo not showing REMOTE_ADDR=1.2.3.4 "
-        )
-        self.assertTrue(
-            driver.page_source.find("SERVER_PORT']</td><td class=\"v\">99") > -1,
-            msg="phpinfo not showing SERVER_PORT=99"
-        )'''
-
     # </tests to run>
 
 if __name__ == '__main__':
